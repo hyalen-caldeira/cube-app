@@ -42,4 +42,9 @@ public class UserServiceImpl extends Domain implements UserService {
         UserModel model = dao.create(UserMapper.INSTANCE.mapDtoToModel(dto));
         return mapper.mapModelToDto(model);
     }
+
+    @Override
+    public Long deleteByName(String name) {
+        return dao.deleteByName(name);
+    }
 }

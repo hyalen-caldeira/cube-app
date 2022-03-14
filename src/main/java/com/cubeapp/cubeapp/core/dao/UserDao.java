@@ -57,9 +57,9 @@ public class UserDao {
         return model;
     }
 
-//    public void delete(UserModel model) {
-//        getSessionFactory().getCurrentSession().delete(model);
-//    }
+    public Long deleteByName(String name) {
+        return repository.deleteByName(name);
+    }
 //
 //    public List<User> findAllUsers() {
 //        return null;

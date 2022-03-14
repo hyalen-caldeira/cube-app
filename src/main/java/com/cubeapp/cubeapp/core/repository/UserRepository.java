@@ -16,4 +16,6 @@ public interface UserRepository extends MongoRepository<UserModel, Long> {
 
     Boolean existsByName(String name);
     Boolean existsByEmail(String email);
+
+    Long deleteByName(String name);
 }

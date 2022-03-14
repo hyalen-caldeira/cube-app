@@ -62,7 +62,7 @@ public class UserController {
     @DeleteMapping(value = "/{name}")
     public ResponseEntity<?> delete(@PathVariable(value = "name") String name) {
         service.findByName(name);
-//        service.delete();
+        service.deleteByName(name);
 
         // Not using swagger version of API response
         return ok(new ApiResponse(true, ApiResponse.DELETED));

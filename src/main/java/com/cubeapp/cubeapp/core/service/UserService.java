@@ -12,4 +12,5 @@ public interface UserService {
     UserDto findByName(String name);
     void update(UserDto dto);
     UserDto create(UserDto dto);
+    Long deleteByName(String name);
 }
