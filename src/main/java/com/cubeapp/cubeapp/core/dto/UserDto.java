@@ -14,7 +14,6 @@ import javax.validation.constraints.Size;
 @EqualsAndHashCode
 @NoArgsConstructor
 @Builder
-//@JsonIgnoreProperties(ignoreUnknown = true)
 public class UserDto {
     public static final String MEDIA_TYPE = "application/vnd.spring-template.user.v1+json";
 

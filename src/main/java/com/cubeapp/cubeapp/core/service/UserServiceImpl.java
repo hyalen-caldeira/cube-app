@@ -2,7 +2,6 @@ package com.cubeapp.cubeapp.core.service;
 
 import lombok.Setter;
 import org.springframework.stereotype.Service;
-import com.cubeapp.cubeapp.core.Domain;
 import com.cubeapp.cubeapp.core.NotFoundException;
 import com.cubeapp.cubeapp.core.dao.UserDao;
 import com.cubeapp.cubeapp.core.dto.UserDto;
@@ -12,7 +11,7 @@ import com.cubeapp.cubeapp.model.UserModel;
 import java.util.List;
 
 @Service
-public class UserServiceImpl extends Domain implements UserService {
+public class UserServiceImpl implements UserService {
     @Setter
     private static UserDao dao;
 
@@ -32,13 +31,11 @@ public class UserServiceImpl extends Domain implements UserService {
 
     @Override
     public void update(UserDto dto) {
-        validate();
         dao.update(mapper.mapDtoToModel(dto));
     }
 
     @Override
     public UserDto create(UserDto dto) {
-        validate();
         UserModel model = dao.create(UserMapper.INSTANCE.mapDtoToModel(dto));
         return mapper.mapModelToDto(model);
     }

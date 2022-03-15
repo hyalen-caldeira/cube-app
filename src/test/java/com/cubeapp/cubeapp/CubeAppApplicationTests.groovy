@@ -25,4 +25,8 @@ class CubeAppApplicationTests extends Specification {
 		userController
 	}
 
+	@Test
+	void main() {
+		CubeAppApplication.main(new String[] {});
+	}
 }

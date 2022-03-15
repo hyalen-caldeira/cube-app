@@ -1,8 +1,5 @@
 package com.cubeapp.cubeapp
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
-
 import com.cubeapp.cubeapp.core.dto.UserDto
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.beans.factory.annotation.Autowired
@@ -11,12 +8,14 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.web.servlet.MockMvc
-import org.springframework.test.web.servlet.ResultActions
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers
 import spock.lang.Narrative
 import spock.lang.Specification
 import spock.lang.Title
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 
 @Title("UserController Specification")
 @Narrative("The Specification of the behaviour of the UserController. It can create a user, change the name and reset it to 'world'")
@@ -33,9 +32,9 @@ class UserControllerTest extends Specification {
     protected ObjectMapper objectMapper;
 
     // GET ALL users
-    def "when get is performed then the response has status 200 and content is 'hyalen'"() {
+    def "when get all users is performed, then the response has status 200 and all users will be returned"() {
         expect: "Status is 200 and the response is 'hyalen'"
-        mvc.perform(MockMvcRequestBuilders.get("/api/users")).andExpect(MockMvcResultMatchers.status().isOk())//.andReturn().response.contentAsString == "Hello world!"
+        mvc.perform(MockMvcRequestBuilders.get("/api/users")).andExpect(MockMvcResultMatchers.status().isOk())
     }
 
     // CREATE a new user and find by name
