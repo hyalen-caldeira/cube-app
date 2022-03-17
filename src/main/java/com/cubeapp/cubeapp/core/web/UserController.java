@@ -19,6 +19,7 @@ import static org.springframework.http.ResponseEntity.ok;
 
 @RestController("userController_v1")
 @RequestMapping(value = "/api/users", produces = UserDto.MEDIA_TYPE)
+@CrossOrigin
 public class UserController {
     private UserService service;
 
