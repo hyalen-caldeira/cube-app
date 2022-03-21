@@ -34,11 +34,11 @@ public class UserController {
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
-//    @GetMapping(value = "/{name}")
-//    public ResponseEntity<UserDto> getUserByName(@PathVariable(value = "name") String name) {
-//        UserDto userDto = service.findByName(name);
-//        return ok(userDto);
-//    }
+    @GetMapping(value = "/findByName/{name}")
+    public ResponseEntity<UserDto> getUserById(@PathVariable(value = "name") String name) {
+        UserDto userDto = service.findByName(name);
+        return ok(userDto);
+    }
 
     @GetMapping(value = "/{name}")
     public ResponseEntity<List<UserModel>> getUserStartingWith(@PathVariable(value = "name") String name) {
