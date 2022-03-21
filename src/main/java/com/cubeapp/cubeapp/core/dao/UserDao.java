@@ -19,6 +19,10 @@ public class UserDao {
         return repository.findAll();
     }
 
+    public List<UserModel> findByNameStartingWith(String name) {
+        return repository.findByNameStartingWith(name);
+    }
+
     public Optional<UserModel> findByName(String name) {
         Optional<UserModel> model = repository.findByName(name);
         return model;

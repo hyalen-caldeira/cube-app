@@ -10,6 +10,7 @@ import java.util.Optional;
 @Repository
 public interface UserRepository extends MongoRepository<UserModel, Long> {
     Optional<UserModel> findByName(String name);
+    List<UserModel> findByNameStartingWith(String name);
     Optional<UserModel> findByEmail(String email);
     Optional<UserModel> findByNameOrEmail(String name, String email);
     List<UserModel> findByIdIn(List<Long> userIds);

@@ -9,6 +9,7 @@ import java.util.Optional;
 
 public interface UserService {
     List<UserModel> getAllUsers();
+    List<UserModel> findByNameStartingWith(String name);
     UserDto findByName(String name);
     void update(UserDto dto);
     UserDto create(UserDto dto);

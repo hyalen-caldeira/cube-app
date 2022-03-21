@@ -34,15 +34,22 @@ public class UserController {
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
+//    @GetMapping(value = "/{name}")
+//    public ResponseEntity<UserDto> getUserByName(@PathVariable(value = "name") String name) {
+//        UserDto userDto = service.findByName(name);
+//        return ok(userDto);
+//    }
+
     @GetMapping(value = "/{name}")
-    public ResponseEntity<UserDto> getUserByName(@PathVariable(value = "name") String name) {
-        UserDto UserDto = service.findByName(name);
-        return ok(UserDto);
+    public ResponseEntity<List<UserModel>> getUserStartingWith(@PathVariable(value = "name") String name) {
+        var list = service.findByNameStartingWith(name);
+
+        return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
     @PutMapping(value = "/{name}", consumes = UserDto.MEDIA_TYPE)
     public void update(@Valid @RequestBody UserDto dto, @PathVariable(value = "name") String name) {
-        service.findByName(name);
+        // service.findByName(name);
         service.update(dto);
     }
 

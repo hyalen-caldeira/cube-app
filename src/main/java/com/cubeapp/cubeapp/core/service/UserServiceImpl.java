@@ -30,6 +30,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<UserModel> findByNameStartingWith(String name) {
+        var model = dao.findByName(name).orElseThrow(NotFoundException::new);
+        return (List<UserModel>) dao.findByNameStartingWith(name);
+    }
+
+    @Override
     public void update(UserDto dto) {
         dao.update(mapper.mapDtoToModel(dto));
     }
